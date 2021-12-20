@@ -13,6 +13,24 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+$router->get('/', [
+    'as' => 'homepage',
+    'uses' => 'IgFetcherController@homepage'
+]);
+
+
+
+$router->post('/user', [
+    'as' => 'userinfo',
+    'uses' => 'IgFetcherController@fetchUserInfos'
+]);
+
+$router->get('user/{username}', [
+    'as' => 'userinfo.html',
+    'uses' => 'IgFetcherController@showUserInfos'
+]);
+
+$router->get('user/{username}/json', [
+    'as' => 'userinfo.json',
+    'uses' => 'IgFetcherController@showUserInfosJSON'
+]);

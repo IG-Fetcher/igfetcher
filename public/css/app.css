@@ -1,0 +1,32 @@
+
+
+*, *:before, *:after { 
+  box-sizing: border-box; 
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font: 16px/1.625 sans-serif;
+}
+
+.container {
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+body > header,
+body > footer {
+    background: lightgrey;
+    padding:  3rem;
+}
+body > footer {
+    position: sticky;
+    top: 100vh;
+}
+
+body > main {
+    padding:  3rem;
+}
