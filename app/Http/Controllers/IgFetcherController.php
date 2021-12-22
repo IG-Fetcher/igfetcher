@@ -142,11 +142,20 @@ class IgFetcherController extends Controller
             return $info;
 
         } catch (InstagramException $e) {
-            die($e->getMessage());
+            // die($e->getMessage());
+            return redirect()->route('homepage', [
+                'error' => $e->getMessage()
+            ]);
         } catch (CacheException $e) {
-            die($e->getMessage());
+            // die($e->getMessage());
+            return redirect()->route('homepage', [
+                'error' => $e->getMessage()
+            ]);
         } catch (\Exception $e) {
-            die($e->getMessage());
+            // die($e->getMessage());
+            return redirect()->route('homepage', [
+                'error' => $e->getMessage()
+            ]);
         }
     }
 
