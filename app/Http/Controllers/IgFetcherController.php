@@ -91,6 +91,9 @@ class IgFetcherController extends Controller
             $info = Cache::get('user_' . $username, NULL);
         }
         else {
+            if ($reset_cache) {
+                Cache::forget('user_' . $username);
+            }
             // Fetch from upstream
             $info = $this->fetchUserInfos($username);
         }
