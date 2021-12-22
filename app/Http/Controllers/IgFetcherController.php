@@ -52,9 +52,19 @@ class IgFetcherController extends Controller
         }
     }
 
-    public function showUserInfos($username) {
-        $info = $this->getUserInfos($username);
+    public function showUserInfos(Request $request, $username) {
+        // Reset cache flag
+        $reset_cache = FALSE;
 
+        $query = $request->query();
+        if (!empty($query['action']) && !empty($query['token'])) {
+            if ($query['action'] == 'purge' && $query['token'] == env('IG_FETCHER_PURGE_TOKEN')) {
+                $reset_cache = TRUE;
+            }
+        }
+
+        // Get info, from cache or upstream
+        $info = $this->getUserInfos($username, $reset_cache);
         if (!empty($info)) {
             return view('userinfo', [
                 'username' => $username,
@@ -74,9 +84,9 @@ class IgFetcherController extends Controller
         return response()->json($info);
     }
 
-    protected function getUserInfos($username) {
+    protected function getUserInfos($username, $reset_cache = FALSE) {
         $info = NULL;
-        if (Cache::has('user_' . $username)) {
+        if (!$reset_cache && Cache::has('user_' . $username)) {
             // Get from cache
             $info = Cache::get('user_' . $username, NULL);
         }
