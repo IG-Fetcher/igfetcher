@@ -18,7 +18,7 @@ use Instagram\Utils\MediaDownloadHelper;
 class IgFetcherController extends Controller
 {
 
-    const TTL = 15 * 60; // 15 minutes
+    const TTL = 24 * 60 * 60; // 24 hours
 
     /**
      * Create a new controller instance.
