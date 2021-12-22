@@ -126,7 +126,11 @@ class IgFetcherController extends Controller
                 mkdir($download_path, 0775, true);
             }
 
+            // Store profile picture locally
+            $profile_picture_cached_filename = $this->downloadThumbnail($profile->getProfilePicture(), $download_path);
+            $profile_picture_cached = env('APP_URL') . '/thumbnails/' . $username . '/' . $profile_picture_cached_filename;
 
+            // Medias
             $clean_medias = [];
             foreach ($medias as $key => $media) {
 
@@ -147,6 +151,12 @@ class IgFetcherController extends Controller
             $info = [
                 'username' => $username,
                 'fullname' => $profile->getFullName(),
+                'biography' => $profile->getBiography(),
+                'external_url' => $profile->getExternalUrl(),
+                'profile_picture' => $profile_picture_cached,
+                'followers' => $profile->getFollowers(),
+                'following' => $profile->getFollowing(),
+                'private' => $profile->isPrivate(),
                 'medias' => $clean_medias,
             ];
 
