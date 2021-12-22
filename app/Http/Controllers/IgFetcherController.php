@@ -115,10 +115,21 @@ class IgFetcherController extends Controller
 
             $profile = $api->getProfile($username);
             $medias = $profile->getMedias();
-            // print '<pre>'.print_r($medias, true) . '</pre>';
+
+            // download thumbnail locally because upstream prevent hotlinking
+            // storage_path('public') ?
+            $download_path = base_path('public') . '/thumbnails/' . $username;
+            if (!is_dir($download_path)) {
+                mkdir($download_path, 0775, true);
+            }
+
 
             $clean_medias = [];
             foreach ($medias as $key => $media) {
+
+                $thumbnail_cached_filename = $this->downloadThumbnail($media->getThumbnailSrc(), $download_path);
+                $thumbnail_cached = env('APP_URL') . '/thumbnails/' . $username . '/' . $thumbnail_cached_filename;
+
                 $clean_medias[$key] = [
                     'id' => $media->getId(),
                     'date' => $media->getDate()->format('Y-m-d h:i:s'),
@@ -126,6 +137,7 @@ class IgFetcherController extends Controller
                     'caption' => $media->getCaption(),
                     'link' => $media->getLink(),
                     'thumbnail' => $media->getThumbnailSrc(),
+                    'thumbnail_cached' => $thumbnail_cached,
                 ];
             }
 
@@ -156,6 +168,17 @@ class IgFetcherController extends Controller
             return redirect()->route('homepage', [
                 'error' => $e->getMessage()
             ]);
+        }
+    }
+
+    protected function downloadThumbnail($url, $download_path) {
+        // From https://github.com/pgrimaud/instagram-user-feed/blob/master/src/Instagram/Utils/MediaDownloadHelper.php
+        if (filter_var($url, FILTER_VALIDATE_URL)) {
+            $fileName = substr(str_replace('/', '-', parse_url($url, PHP_URL_PATH)), 1);
+            $content = file_get_contents($url);
+            file_put_contents($download_path . '/' . $fileName, $content);
+
+            return $fileName;
         }
     }
 
