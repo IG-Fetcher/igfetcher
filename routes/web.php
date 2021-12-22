@@ -21,9 +21,12 @@ $router->get('/', [
 
 
 $router->post('/user', [
-    'as' => 'userinfo',
-    'uses' => 'IgFetcherController@fetchUserInfos'
+    'as' => 'userinfo_form',
+    'uses' => 'IgFetcherController@userInfosForm'
 ]);
+$router->get('/user', function() {
+    return redirect()->route('homepage');
+});
 
 $router->get('user/{username}', [
     'as' => 'userinfo.html',
