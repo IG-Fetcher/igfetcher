@@ -108,7 +108,7 @@ class IgFetcherController extends Controller
         }
 
         // Fetch info
-        $cachePool = new FilesystemAdapter('Instagram', 0, __DIR__ . '/../cache');
+        $cachePool = new FilesystemAdapter('IGFetcher');
         try {
             $api = new Api($cachePool);
             $api->login($account, $password);
