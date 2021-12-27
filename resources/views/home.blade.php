@@ -8,13 +8,12 @@
 <div class="message message--error">{{ $error }}</div>
 @endif
 
-<form method="POST" action="{{ route('userinfo_form') }}">
-
-    <label class="label" for="username">{{ __('Username') }}</label>
-    <input class="input" type="text" id="username" name="username" value="" placeholder="Your IG username" required />
+<form class="userinfo-form" method="POST" action="{{ route('userinfo_form') }}">
+    <label class="label" for="username">{{ __('Username') }}
+        <input class="input" type="text" id="username" name="username" value="" placeholder="Your IG username" required />
+    </label>
 
     <input class="button is-primary" type="submit" value="{{ __('Get profile') }}" />
-
 </form>
 
 @endsection

@@ -1,32 +1,85 @@
-
-
-*, *:before, *:after { 
-  box-sizing: border-box; 
-}
-
-html,
+/*html,
 body {
     margin: 0;
     padding: 0;
     height: 100%;
     font: 16px/1.625 sans-serif;
 }
-
-.container {
+*/
+/*.container {
     max-width: 50rem;
     margin: 0 auto;
+}
+*/
+
+
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+    --main-bg-color:  #eee;
+    --primary:  #00adb5;
+}
+body > header,
+body > main,
+body > footer,
+section,
+article {
+    --block-spacing-vertical: calc(var(--spacing) * 3);
+    --block-spacing-horizontal: calc(var(--spacing) * 3);
 }
 
 body > header,
 body > footer {
-    background: lightgrey;
-    padding:  3rem;
+    background: var(--main-bg-color);
+    padding:  var(--block-spacing-vertical) var(--block-spacing-horizontal);
 }
 body > footer {
     position: sticky;
     top: 100vh;
 }
-
 body > main {
-    padding:  3rem;
+    padding:  var(--block-spacing-vertical) var(--block-spacing-horizontal);
+}
+
+
+body > header {}
+body > header h1 a {
+    color:  currentColor;
+}
+
+
+.userinfo-form {
+    max-width: 25rem;
+    margin: 0 auto 0 0;
+}
+
+
+.userinfo__profile.grid {
+    align-items: center;
+    justify-items: center;
+}
+.userinfo__profile__picture {
+    text-align: right;
+}
+.userinfo__profile__info {}
+.userinfo__profile__info h2,
+.userinfo__profile__info .userinfo__profile__username {
+    margin: 0;
+}
+.userinfo__profile__info .userinfo__profile__username {
+    font-family: monospace;
+}
+
+
+.userinfo__profile__media {}
+.userinfo__profile__media__caption {
+    padding-top: var(--block-spacing-vertical);
+}
+.userinfo__profile__media__caption footer {
+    margin-top: var(--block-spacing-vertical);
+}
+
+
+.userinfo__profile__actions {
+    padding: var(--block-spacing-vertical) 0;
+    text-align: center;
 }
