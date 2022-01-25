@@ -8,3 +8,6 @@ Homestead.yaml
 
 # Front-end
 node_modules/
+
+# IDE
+*.code-workspace
