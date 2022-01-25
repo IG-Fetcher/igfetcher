@@ -1,7 +1,7 @@
 {
-    "name": "laravel/lumen",
-    "description": "The Laravel Lumen Framework.",
-    "keywords": ["framework", "laravel", "lumen"],
+    "name": "IG-Fetcher/igfetcher",
+    "description": "An easy way to fetch data from IG social network.",
+    "keywords": ["instagram", "social-network"],
     "license": "MIT",
     "type": "project",
     "require": {
