@@ -30,6 +30,8 @@
                 <br />
                 💓 Made with love by <a href="https://github.com/opi" target="_blank">opi</a> with <a href="https://lumen.laravel.com/" target="_blank">Lumen</a>, <a href="https://picocss.com/" target="_blank">Pico CSS</a> and <a href="https://github.com/pgrimaud/instagram-user-feed/" target="_blank">pgrimaud's instagram-user-feed library</a>.
                 <br />
+                <a href="https://github.com/IG-Fetcher/igfetcher">Source code</a> is released under MIT License. 
+                <br />
                 Please destroy patriarchy ✊
             </div>
         </footer>
