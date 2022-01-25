@@ -46,6 +46,10 @@ body > header h1 a {
     color:  currentColor;
 }
 
+.buymeacoffee {
+    text-align: right;
+}
+
 
 .userinfo-form {
     max-width: 25rem;

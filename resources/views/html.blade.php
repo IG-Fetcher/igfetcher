@@ -11,10 +11,15 @@
 
         <header>
             <div class="container">
-                <hgroup>
-                    <h1 class="title"><a href="/">{{ config('app.name') }}</a></h1>
-                    <p class="subtitle">An easy way to fetch data from IG social network</p>
-                </hgroup>
+                <div class="grid">
+                    <hgroup>
+                        <h1 class="title"><a href="/">{{ config('app.name') }}</a></h1>
+                        <p class="subtitle">An easy way to fetch data from IG social network</p>
+                    </hgroup>
+                    <p class="buymeacoffee">
+                        <a role="button" class="outline secondary" href="https://www.buymeacoffee.com/igfetcher">☕ Buy me a coffee</a>
+                    </p>
+                </div>
             </div>
         </header>
 
@@ -30,9 +35,9 @@
                 <br />
                 💓 Made with love by <a href="https://github.com/opi" target="_blank">opi</a> with <a href="https://lumen.laravel.com/" target="_blank">Lumen</a>, <a href="https://picocss.com/" target="_blank">Pico CSS</a> and <a href="https://github.com/pgrimaud/instagram-user-feed/" target="_blank">pgrimaud's instagram-user-feed library</a>.
                 <br />
-                <a href="https://github.com/IG-Fetcher/igfetcher">Source code</a> is released under MIT License. 
+                🤖 <a href="https://github.com/IG-Fetcher/igfetcher">Source code</a> is released under MIT License.  <a href="https://www.buymeacoffee.com/igfetcher">☕ Buy me a coffee</a>
                 <br />
-                Please destroy patriarchy ✊
+                ✊ Please destroy patriarchy ✊
             </div>
         </footer>
     </body>
