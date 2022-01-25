@@ -1,5 +1,5 @@
 {
-    "name": "IG-Fetcher/igfetcher",
+    "name": "ig-fetcher/igfetcher",
     "description": "An easy way to fetch data from IG social network.",
     "keywords": ["instagram", "social-network"],
     "license": "MIT",
