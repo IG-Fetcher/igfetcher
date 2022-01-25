@@ -18,7 +18,7 @@
 
     <div class="userinfo__profile__actions">
         <a role="button" href="https://www.instagram.com/{{ $username }}/">View on Instagram</a>
-        <a role="button" href="{{ route('userinfo.json', ['username' => $username]) }}">View as JSON</a>
+        <a role="button" target="_blank" href="{{ route('userinfo.json', ['username' => $username]) }}">View as JSON</a>
     </div>
 
     @foreach ($info['medias'] as $media)
