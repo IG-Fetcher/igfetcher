@@ -39,7 +39,7 @@ class IgFetcherController extends Controller
         // TODO : validate
 
         $info = $this->getUserInfos($username);
-        if (!empty($info)) {
+        if (!empty($info) && is_array($info)) {
             return redirect()->route('userinfo.html', [
                 'username' => $username
             ]);
@@ -65,7 +65,7 @@ class IgFetcherController extends Controller
 
         // Get info, from cache or upstream
         $info = $this->getUserInfos($username, $reset_cache);
-        if (!empty($info)) {
+        if (!empty($info) && is_array($info)) {
             return view('userinfo', [
                 'username' => $username,
                 'info' => $info
